@@ -1,0 +1,48 @@
+.effeckt-button.slide-left {
+    overflow: hidden;
+}
+.login-button {
+    margin: 0 auto;
+    width: 100%;
+}
+.button--large {
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 36px;
+    padding: 4px 12px;
+    text-align: center;
+    width: 100%;
+}
+.button {
+    -moz-font-feature-settings: inherit;
+    -moz-font-language-override: inherit;
+    -moz-user-select: none;
+    background: none repeat scroll 0 0 #1284ff;
+    border: 0 solid currentcolor;
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: default;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 17px;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: 400;
+    height: auto;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0;
+    overflow: hidden;
+    padding: 4px 10px;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: none 0s ease 0s ;
+    vertical-align: middle;
+    white-space: nowrap;
+}

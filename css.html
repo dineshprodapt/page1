@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+    <link rel="stylesheet" href="../onsen-css-components-default.css">
+    <link rel="stylesheet" href="checkbox_list.css">
+
+    <script src="lib/onsen/js/angular/angular.js"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+    <script>
+      ons.bootstrap();
+    </script>
+	<style>
+	.checkbox {
+    -moz-user-select: none;
+    cursor: default;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 10px 0;
+    position: relative;
+    vertical-align: top;
+}
+.checkbox > .checkbox__checkmark {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    cursor: default;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+}
+.checkbox > input[type="checkbox"] {
+    border: 0 none;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0.001;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: top;
+    width: 0;
+    z-index: 1;
+}
+.checkbox > input[type="checkbox"]:checked {
+    background: none repeat scroll 0 0 #1284ff;
+}
+.checkbox > input[type="checkbox"]:checked + .checkbox__checkmark:before {
+    background: none repeat scroll 0 0 #1284ff;
+    border: 1px solid #1284ff;
+}
+.checkbox > input[type="checkbox"]:checked + .checkbox__checkmark:after {
+    opacity: 1;
+}
+.checkbox > .checkbox__checkmark:before {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #1284ff;
+    border-radius: 16px;
+    box-shadow: none;
+    box-sizing: border-box;
+    content: "";
+    height: 24px;
+    left: 0;
+    position: absolute;
+    width: 24px;
+}
+.checkbox > .checkbox__checkmark {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    box-sizing: border-box;
+    cursor: default;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    width: 24px;
+}
+.checkbox > .checkbox__checkmark:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color -moz-use-text-color #fff #fff;
+    border-image: none;
+    border-radius: 0;
+    border-style: none none solid solid;
+    border-width: medium medium 2px 2px;
+    content: "";
+    height: 6px;
+    left: 5px;
+    opacity: 0;
+    position: absolute;
+    top: 6px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+.checkbox > input[type="checkbox"]:focus + .checkbox__checkmark:before {
+    box-shadow: none;
+}
+.checkbox > input[type="checkbox"]:disabled + .checkbox__checkmark {
+    cursor: default;
+    opacity: 0.3;
+    pointer-events: none;
+}
+.checkbox > input[type="checkbox"]:disabled:active + .checkbox__checkmark:before {
+    background: none repeat scroll 0 0 transparent;
+    box-shadow: none;
+}
+.checkbox--noborder > input[type="checkbox"] {
+    border: 0 none;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    opacity: 0.001;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: top;
+    width: 100%;
+    z-index: 1;
+}
+.checkbox--noborder {
+    -moz-user-select: none;
+    cursor: default;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+}
+.checkbox--noborder > .checkbox__checkmark {
+    -moz-user-select: none;
+    background: none repeat scroll 0 0 transparent;
+    box-sizing: border-box;
+    cursor: default;
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    vertical-align: top;
+}
+.checkbox--noborder > input[type="checkbox"] {
+    border: 0 none;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0.001;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: top;
+    width: 0;
+    z-index: 1;
+}
+.checkbox--noborder > input[type="checkbox"]:checked + .checkbox__checkmark:before {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+}
+.checkbox--noborder > input[type="checkbox"]:checked + .checkbox__checkmark:after {
+    opacity: 1;
+}
+.checkbox--noborder > .checkbox__checkmark:before {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-radius: 16px;
+    content: "";
+    height: 24px;
+    left: 0;
+    position: absolute;
+    width: 24px;
+}
+.checkbox--noborder > .checkbox__checkmark {
+    -moz-user-select: none;
+    background-clip: padding-box;
+    border: medium none;
+    box-sizing: border-box;
+    cursor: default;
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    vertical-align: top;
+    width: 24px;
+}
+.checkbox--noborder > .checkbox__checkmark:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color -moz-use-text-color #1284ff #1284ff;
+    border-image: none;
+    border-radius: 0;
+    border-style: none none solid solid;
+    border-width: medium medium 2px 2px;
+    content: "";
+    height: 6px;
+    left: 5px;
+    opacity: 0;
+    position: absolute;
+    top: 6px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+.checkbox--noborder > input[type="checkbox"]:focus + .checkbox__checkmark:before {
+    border: medium none;
+    box-shadow: none;
+}
+.checkbox--noborder > input[type="checkbox"]:disabled + .checkbox__checkmark {
+    cursor: default;
+    opacity: 0.3;
+    pointer-events: none;
+}
+.checkbox--noborder > input[type="checkbox"]:disabled:active + .checkbox--noborder__checkmark:before {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    box-shadow: none;
+}
+	</style>
+  </head>
+  <body>
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Checkboxes</div>
+      </ons-toolbar>
+
+      <ons-list>
+
+        <ons-list-header>Favorite Sports</ons-list-header>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--list-item">
+            <input type="checkbox">
+            <div class="checkbox__checkmark checkbox--list-item__checkmark"></div>
+            Baseball
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--list-item">
+            <input type="checkbox">
+            <div class="checkbox__checkmark checkbox--list-item__checkmark"></div>
+            Soccer
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--list-item">
+            <input type="checkbox" checked="checked">
+            <div class="checkbox__checkmark checkbox--list-item__checkmark"></div>
+            Basketball
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--list-item">
+            <input type="checkbox" checked="checked">
+            <div class="checkbox__checkmark checkbox--list-item__checkmark"></div>
+            Golf
+          </label>
+        </ons-list-item>
+
+        <ons-list-header>Favorite Food</ons-list-header>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--noborder checkbox--list-item">
+            <input type="checkbox" checked="checked">
+            <div class="checkbox__checkmark checkbox--noborder__checkmark checkbox--list-item__checkmark"></div>
+            Hamburger
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--noborder checkbox--list-item">
+            <input type="checkbox">
+            <div class="checkbox__checkmark checkbox--noborder__checkmark checkbox--list-item__checkmark"></div>
+            Beefsteak
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--noborder checkbox--list-item">
+            <input type="checkbox" checked="checked">
+            <div class="checkbox__checkmark checkbox--noborder__checkmark checkbox--list-item__checkmark"></div>
+            Spaghetti
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable">
+          <label class="checkbox checkbox--noborder checkbox--list-item">
+            <input type="checkbox">
+            <div class="checkbox__checkmark checkbox--noborder__checkmark checkbox--list-item__checkmark"></div>
+            Natto
+          </label>
+        </ons-list-item>
+
+      </ons-list>
+
+    </ons-page>
+
+  </body>
+</html>
